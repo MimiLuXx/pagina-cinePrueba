@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Cine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="dinomo.png" alt="Logo de Cine-Saurus" />
+            </div>
+            <h1 class="site-title">Cine-Saurus</h1>
+            <div class="user-options">
+                <a href="registro.html">Registrarse</a>
+                <a href="login.html">Iniciar sesión</a>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="peliculas.html">Películas</a>
+            <a href="sede.html">Sede</a>
+            <a href="promociones.html">Promociones</a>
+            <a href="socio.html">Socio</a>
+            <a href="dulceria.html">Dulcería</a>
+            <a href="corporativo.html">Corporativo (Admin)</a>
+        </nav>
+    </header>
+
+    <!-- Sección del carrusel a pantalla completa -->
+    <section class="fullwidth-carousel-section">
+        <div id="carousel">
+            <div class="carousel-container">
+                <img id="carousel-image" src="images/terrifier.jpg" alt="Película destacada">
+                <div class="carousel-navigation">
+                    <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+                    <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de películas en cuadrícula -->
+    <section class="movies-grid-section">
+        <div id="movies">
+            <h2>Películas en Cartelera</h2>
+            <div class="small-movie-grid">
+                <div class="movie-item">
+                    <img src="images/dalia.jpg" alt="Dalia" />
+                    <span>Dalia y el libro rojo</span>
+                </div>
+                <div class="movie-item">
+                    <img src="images/dragon.jpg" alt="Dragon" />
+                    <span>La leyenda del dragon</span>
+                </div>
+                <div class="movie-item">
+                    <img src="images/robot.jpg" alt="Robot" />
+                    <span>Robot salvaje</span>
+                </div>
+                <div class="movie-item">
+                    <img src="images/sustancia.jpg" alt="Sustancia" />
+                    <span>La Sustancia</span>
+                </div>
+                <div class="movie-item">
+                    <img src="images/terrifier.jpg" alt="Terrifier 3" />
+                    <span>Terrifier 3</span>
+                </div>
+                <div class="more-movies">
+                    <a href="peliculas.html">Ver más películas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const images = [
+            'images/terrifier.jpg',
+            'images/venom.jpg',
+            'images/rey.jpg'
+        ];
+        let currentIndex = 0;
+        const carouselImage = document.getElementById('carousel-image');
+
+        function showSlide(index) {
+            carouselImage.src = images[index];
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showSlide(currentIndex);
+        }
+
+        // Cambiar imagen cada 8 segundos
+        setInterval(nextSlide, 8000);
+    </script>
+</body>
+</html>
